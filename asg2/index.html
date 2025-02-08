@@ -1,11 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assignment 2 - Modified</title>
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-box
+        position="0 8 0"
+        width="80"
+        height="16"
+        depth="80"
+        material="color: #f5cba7; side: double"
+        id="classroom-wall"
+      ></a-box>
+
+      <a-plane
+        position="0 0 0"
+        rotation="-90 0 0"
+        width="80"
+        height="80"
+        material="color: #d4efdf"
+      ></a-plane>
+
+      <a-plane
+        position="0 16 0"
+        rotation="90 0 0"
+        width="80"
+        height="80"
+        material="color: #f7f9f9"
+      ></a-plane>
+
+      <a-light type="ambient" color="#fffae6" intensity="0.7"></a-light>
+      <a-light type="point" color="#ffcc80" position="0 12 5" intensity="0.6"></a-light>
+
+      <a-entity
+        camera
+        position="0 5 25"
+        wasd-controls="acceleration: 70"
+        look-controls="pointerLockEnabled: true"
+        id="camera"
+        movement-constraint="minX: -35; maxX: 35; minY: 1; maxY: 15; minZ: -35; maxZ: 35"
+      ></a-entity>
+
+      <a-assets>
+        <a-asset-item id="deskModel" src="media/desk.obj"></a-asset-item>
+        <img id="windowTexture" src="media/sky.jpg" />
+      </a-assets>
+
+      <a-entity id="classroom-setup" add-classroom-items></a-entity>
+
+      <a-plane
+        position="0 8 40.5"  
+        rotation="0 0 0"
+        width="10"
+        height="7"
+        material="src: #windowTexture; transparent: true; opacity: 0.9"
+      ></a-plane>
+
+      <a-plane
+        position="0 8 40"
+        rotation="0 0 0"
+        width="11"
+        height="8"
+        material="color: #333333"
+      ></a-plane>
+    </a-scene>
+  </body>
 </html>
